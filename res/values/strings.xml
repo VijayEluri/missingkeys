@@ -19,6 +19,7 @@
 	-->
 <resources>
     <string name="app_name">MissingKeys</string>
+    <string name="app_version">1.0</string>
     <string name="edit_">Set new text</string>
     <string name="help">Click to copy text to clipboard. Long click to edit text.</string>
 </resources>
