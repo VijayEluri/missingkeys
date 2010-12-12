@@ -19,7 +19,19 @@
 	-->
 <resources>
     <string name="app_name">MissingKeys</string>
-    <string name="app_version">1.0</string>
+    <string name="app_version">1.0</string>	<string name="author_">Author:</string>
+	<string name="version_">Version:</string>
+	<string name="license_">License:</string>
+	<string name="author">Felix Bechstein &lt;f@ub0r.de&gt;</string>
+	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string>
+	<string name="source_">Sourcescode:</string>
+	<string name="source">http://github.com/felixb/missingkeys</string>
+	<string name="website_">Website:</string>
+	<string name="website">http://code.google.com/p/ub0rapps/</string>
+	<string name="about_">About MissingKeys</string>
+	<string name="about">MissingKeys let\'s you copy customizable chars/strings not available on your hardware keyboard to clipboard with one click.</string>
+	<string name="more_">More Apps..</string>
+	<string name="settings">Preferences</string>
     <string name="edit_">Set new text</string>
     <string name="help">Click to copy text to clipboard. Long click to edit text.</string>
 </resources>

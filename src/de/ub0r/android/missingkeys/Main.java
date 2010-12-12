@@ -4,19 +4,30 @@ import java.util.HashMap;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.ClipboardManager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Main extends Activity implements OnClickListener,
 		OnLongClickListener {
+
+	/** Dialog: about. */
+	private static final int DIALOG_ABOUT = 0;
 
 	/** Prefix ins {@link SharedPreferences}. */
 	private static final String PREFS_PREFIX = "btn_";
@@ -113,5 +124,56 @@ public class Main extends Activity implements OnClickListener,
 			b.show();
 		}
 		return false;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean onCreateOptionsMenu(final Menu menu) {
+		MenuInflater inflater = this.getMenuInflater();
+		inflater.inflate(R.menu.menu, menu);
+		return true;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean onOptionsItemSelected(final MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item_about: // start about dialog
+			this.showDialog(DIALOG_ABOUT);
+			return true;
+		case R.id.item_more:
+			try {
+				this.startActivity(new Intent(Intent.ACTION_VIEW, Uri
+						.parse("market://search?q=pub:\"Felix Bechstein\"")));
+			} catch (ActivityNotFoundException e) {
+				Toast.makeText(this, "missing market application",
+						Toast.LENGTH_LONG).show();
+			}
+			return true;
+		default:
+			return false;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final Dialog onCreateDialog(final int id) {
+		Dialog d;
+		switch (id) {
+		case DIALOG_ABOUT:
+			d = new Dialog(this);
+			d.setContentView(R.layout.about);
+			d.setTitle(this.getString(R.string.about_) + " v"
+					+ this.getString(R.string.app_version));
+			return d;
+		default:
+			return null;
+		}
 	}
 }
