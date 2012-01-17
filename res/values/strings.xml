@@ -29,7 +29,7 @@
 	<string name="website_">Website:</string>
 	<string name="website">http://code.google.com/p/ub0rapps/</string>
 	<string name="about_">About MissingKeys</string>
-	<string name="about">MissingKeys let\'s you copy customizable chars/strings not available on your hardware keyboard to clipboard with one click.</string>
+	<string name="about">MissingKeys lets you copy customizable chars/strings not available on your hardware keyboard to clipboard with one click.</string>
 	<string name="more_">More Apps..</string>
 	<string name="settings">Preferences</string>
     <string name="edit_">Set new text</string>
